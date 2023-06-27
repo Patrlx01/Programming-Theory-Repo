@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
@@ -7,6 +8,7 @@ using UnityEngine.UIElements;
 
 public class VehicleManager : MonoBehaviour
 {
+    [SerializeField] protected TextMeshProUGUI info;
     protected Rigidbody body;
 
     protected string model = "none";
@@ -41,7 +43,7 @@ public class VehicleManager : MonoBehaviour
 
     protected void displayInfo()
     {
-        Debug.Log($"Model: {model},\n Color: {color},\n Max people: {maxPeople},\n Year: {year_m},\n isFlying: {isFlying},\n Speed: {speed},\n\n Is On: {isOn}");
+        info.text = ($"Model: {model},\n Color: {color},\n People: {maxPeople},\n Year: {year_m},\n isFlying: {isFlying},\n Speed: {speed},\n\n Is On: {isOn}");
     }
 
     protected virtual void Move(float vertic)
